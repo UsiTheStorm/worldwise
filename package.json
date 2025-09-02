@@ -2,7 +2,6 @@
   "name": "vite-react-antfu-temp",
   "type": "module",
   "version": "0.0.1",
-
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -13,7 +12,8 @@
   },
   "dependencies": {
     "react": "^19.1.1",
-    "react-dom": "^19.1.1"
+    "react-dom": "^19.1.1",
+    "react-router-dom": "^7.8.2"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^5.2.1",
