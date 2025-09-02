@@ -10,13 +10,13 @@ function PageNav() {
       <Logo />
       <ul>
         <li>
-          <NavLink to="/">Homepage</NavLink>
-        </li>
-        <li>
           <NavLink to="/product">Product</NavLink>
         </li>
         <li>
           <NavLink to="/pricing">Pricing</NavLink>
+        </li>
+        <li>
+          <NavLink to="/login">Login</NavLink>
         </li>
       </ul>
     </nav>
