@@ -1,8 +1,8 @@
 {
   "name": "vite-react-antfu-temp",
   "type": "module",
-  "version": "0.0.0",
-  "private": true,
+  "version": "0.0.1",
+
   "scripts": {
     "dev": "vite",
     "build": "vite build",

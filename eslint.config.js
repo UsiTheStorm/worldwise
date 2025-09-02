@@ -25,5 +25,11 @@ export default antfu({
     'node/no-process-env': ['error'], // заборона використовувати process.env напряму
     // 'perfectionist/sort-imports': ['error', { tsconfigRootDir: '.' }], // сортування імпортів
     // "unicorn/filename-case": ["error", { case: "kebabCase", ignore: ["README.md"] }], // файли у kebab-case
+    'react/jsx-one-expression-per-line': 'off',
+    'style/jsx-one-expression-per-line': 'off',
+    'style/jsx-curly-brace-presence': [
+      'error',
+      { props: 'never', children: 'never' },
+    ],
   },
 });
