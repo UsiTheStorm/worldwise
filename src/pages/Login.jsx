@@ -1,9 +1,11 @@
-import styles from "./Login.module.css";
+import { useState } from 'react';
+
+import styles from './Login.module.css';
 
 export default function Login() {
   // PRE-FILL FOR DEV PURPOSES
-  const [email, setEmail] = useState("jack@example.com");
-  const [password, setPassword] = useState("qwerty");
+  const [email, setEmail] = useState('jack@example.com');
+  const [password, setPassword] = useState('qwerty');
 
   return (
     <main className={styles.login}>
@@ -13,7 +15,7 @@ export default function Login() {
           <input
             type="email"
             id="email"
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={e => setEmail(e.target.value)}
             value={email}
           />
         </div>
@@ -23,13 +25,13 @@ export default function Login() {
           <input
             type="password"
             id="password"
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={e => setPassword(e.target.value)}
             value={password}
           />
         </div>
 
         <div>
-          <button>Login</button>
+          <button type="submit">Login</button>
         </div>
       </form>
     </main>
