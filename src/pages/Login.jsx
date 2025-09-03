@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import PageNav from '../components/PageNav';
+
 import styles from './Login.module.css';
 
 export default function Login() {
@@ -9,6 +11,8 @@ export default function Login() {
 
   return (
     <main className={`${styles.login} main-section`}>
+      <PageNav />
+
       <form className={styles.form}>
         <div className={styles.row}>
           <label htmlFor="email">Email address</label>
