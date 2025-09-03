@@ -55,6 +55,13 @@ input:focus {
   background-color: #fff;
 }
 
+.main-section {
+  padding: 2.5rem 5rem;
+  background-color: var(--color-dark--1);
+  height: calc(100vh - 3rem);
+  margin: 1.5rem;
+}
+
 .cta:link,
 .cta:visited {
   display: inline-block;

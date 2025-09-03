@@ -8,7 +8,7 @@ export default function Login() {
   const [password, setPassword] = useState('qwerty');
 
   return (
-    <main className={styles.login}>
+    <main className={`${styles.login} main-section`}>
       <form className={styles.form}>
         <div className={styles.row}>
           <label htmlFor="email">Email address</label>

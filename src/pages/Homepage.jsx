@@ -6,7 +6,7 @@ import styles from './Homepage.module.css';
 
 export default function Homepage() {
   return (
-    <main className={styles.homepage}>
+    <main className={`${styles.homepage} main-section`}>
       <PageNav />
       <section>
         <h1>
