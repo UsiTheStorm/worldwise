@@ -14,7 +14,7 @@ import './App.css';
 const BASE_URL = 'http://localhost:3000';
 
 function App() {
-  const [cities, setCities] = useState({});
+  const [cities, setCities] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -48,7 +48,7 @@ function App() {
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/login" element={<Login />} />
         <Route path="/app" element={<AppLayout />}>
-          <Route index element={<CityList />} />
+          <Route index element={<CityList cities={cities} isLoading={isLoading} />} />
 
           <Route path="cities" element={<CityList />} />
           <Route path="countries" element={<p>list of countries</p>} />
