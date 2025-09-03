@@ -17,3 +17,10 @@
   flex-direction: column;
   gap: 0.5rem;
 }
+
+@media (max-width: 830px) {
+  .form {
+    width: 90%;
+    padding: 1.5rem 2rem;
+  }
+}
