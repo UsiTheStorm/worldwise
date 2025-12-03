@@ -51,14 +51,20 @@
     order: -1;
   }
 
+  .product div {
+    width: 90%;
+    text-align: center;
+  }
+
   .product h2 {
     font-size: 2.8rem;
     margin-bottom: 1.5rem;
   }
 
   .product p {
-    font-size: 1.4rem;
+    /* font-size: 1.4rem; */
     margin-bottom: 1.5rem;
+    text-align: left;
   }
 
   .product section a {
