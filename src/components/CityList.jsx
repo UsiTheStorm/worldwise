@@ -1,6 +1,7 @@
 import React from 'react';
 
 import City from './City';
+import CityItem from './CityItem';
 import styles from './CityList.module.css';
 import Spinner from './Spinner';
 
@@ -11,7 +12,7 @@ function CityList({ cities, isLoading }) {
   return (
     <ul className={styles.cityList}>
       {cities.map(city => (
-        <City key={city.id} city={city} />
+        <CityItem key={city.id} city={city} />
       ))}
     </ul>
   );
