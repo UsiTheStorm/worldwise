@@ -9,12 +9,13 @@ function formatDate(date) {
   }).format(new Date(date));
 }
 
-function City({ city }) {
+function City() {
+  // TEMP DATA
   const currentCity = {
-    cityName: city.cityName,
-    emoji: city.emoji,
-    date: city.date,
-    notes: city.notes,
+    cityName: 'Lisbon',
+    emoji: '🇵🇹',
+    date: '2027-10-31T15:59:59.138Z',
+    notes: 'My favorite city so far!',
   };
 
   const { cityName, emoji, date, notes } = currentCity;
