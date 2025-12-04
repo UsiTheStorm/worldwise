@@ -2,12 +2,13 @@ import { useEffect, useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import CityList from './components/CityList';
+import CountryList from './components/CountryList';
 import AppLayout from './pages/AppLayout';
 import Homepage from './pages/Homepage';
 import Login from './pages/Login';
 import PageNotFound from './pages/PageNotFound';
-import Pricing from './pages/Pricing';
 
+import Pricing from './pages/Pricing';
 import Product from './pages/Product';
 import './App.css';
 
@@ -51,7 +52,7 @@ function App() {
           <Route index element={<CityList cities={cities} isLoading={isLoading} />} />
 
           <Route path="cities" element={<CityList cities={cities} isLoading={isLoading} />} />
-          <Route path="countries" element={<p>list of countries</p>} />
+          <Route path="countries" element={<CountryList cities={cities} isLoading={isLoading} />} />
           <Route path="form" element={<p>form</p>} />
         </Route>
 
