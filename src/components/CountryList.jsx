@@ -12,16 +12,19 @@ function CountryList({ cities, isLoading }) {
   if (!cities.length)
     return <Message message="Start by searching for a city" />;
 
-  const countries = cities.reduce((acc, item) => {
-    if (!acc.map(el => el.country).includes(item.country)) {
-      acc.push({
-        id: item.id,
-        country: item.country,
-        emoji: item.emoji,
+  const countriesMap = new Map();
+
+  cities.forEach((city) => {
+    if (!countriesMap.has(city.country)) {
+      countriesMap.set(city.country, {
+        id: city.id,
+        country: city.country,
+        emoji: city.emoji,
       });
     }
-    return acc;
-  }, []);
+  });
+
+  const countries = Array.from(countriesMap.values());
 
   // console.log(countries);
 
