@@ -50,7 +50,7 @@ function App() {
         <Route path="/app" element={<AppLayout />}>
           <Route index element={<CityList cities={cities} isLoading={isLoading} />} />
 
-          <Route path="cities" element={<CityList />} />
+          <Route path="cities" element={<CityList cities={cities} isLoading={isLoading} />} />
           <Route path="countries" element={<p>list of countries</p>} />
           <Route path="form" element={<p>form</p>} />
         </Route>
