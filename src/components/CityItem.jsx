@@ -11,7 +11,7 @@ function formatDate(date) {
 }
 
 function CityItem({ city }) {
-  const { cityName, emoji, date, notes, id } = city;
+  const { cityName, emoji, date, id } = city;
 
   return (
     <li>
