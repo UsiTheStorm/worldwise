@@ -4,8 +4,8 @@ import { Outlet } from 'react-router-dom';
 
 import AppNav from './AppNav';
 import Logo from './Logo';
-
 import styles from './Sidebar.module.css';
+import SidebarFooter from './SidebarFooter';
 
 function Sidebar() {
   return (
@@ -15,11 +15,7 @@ function Sidebar() {
 
       <Outlet />
 
-      <footer className={styles.footer}>
-        <p className={styles.copyright}>
-          Copyright &copy; {new Date().getFullYear()} by WorldWise Inc.
-        </p>
-      </footer>
+      <SidebarFooter />
     </div>
   );
 }
