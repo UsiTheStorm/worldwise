@@ -4,13 +4,14 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import City from './components/City';
 import CityList from './components/CityList';
 import CountryList from './components/CountryList';
+import Form from './components/Form';
 import AppLayout from './pages/AppLayout';
 import Homepage from './pages/Homepage';
 import Login from './pages/Login';
 import PageNotFound from './pages/PageNotFound';
-
 import Pricing from './pages/Pricing';
 import Product from './pages/Product';
+
 import './App.css';
 
 const BASE_URL = 'http://localhost:3000';
@@ -45,20 +46,20 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route index element={<Homepage />} />
-        <Route path="/product" element={<Product />} />
-        <Route path="/pricing" element={<Pricing />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/app" element={<AppLayout />}>
-          <Route index element={<CityList cities={cities} isLoading={isLoading} />} />
+        <Route element={<Homepage />} index />
+        <Route element={<Product />} path="/product" />
+        <Route element={<Pricing />} path="/pricing" />
+        <Route element={<Login />} path="/login" />
+        <Route element={<AppLayout />} path="/app">
+          <Route element={<CityList cities={cities} isLoading={isLoading} />} index />
 
-          <Route path="cities" element={<CityList cities={cities} isLoading={isLoading} />} />
-          <Route path="cities/:id" element={<City />} />
-          <Route path="countries" element={<CountryList cities={cities} isLoading={isLoading} />} />
-          <Route path="form" element={<p>form</p>} />
+          <Route element={<CityList cities={cities} isLoading={isLoading} />} path="cities" />
+          <Route element={<City />} path="cities/:id" />
+          <Route element={<CountryList cities={cities} isLoading={isLoading} />} path="countries" />
+          <Route element={<Form />} path="form" />
         </Route>
 
-        <Route path="*" element={<PageNotFound />} />
+        <Route element={<PageNotFound />} path="*" />
 
       </Routes>
     </BrowserRouter>
