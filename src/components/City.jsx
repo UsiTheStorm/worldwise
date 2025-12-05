@@ -1,14 +1,6 @@
 import { useParams } from 'react-router-dom';
-import styles from './City.module.css';
 
-function formatDate(date) {
-  return new Intl.DateTimeFormat('en', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-    weekday: 'long',
-  }).format(new Date(date));
-}
+import styles from './City.module.css';
 
 function City({ cities }) {
   let id = useParams();
@@ -17,12 +9,12 @@ function City({ cities }) {
   // TEMP DATA
   const currentCity = {
     cityName: 'Lisbon',
-    emoji: '🇵🇹',
     date: '2027-10-31T15:59:59.138Z',
+    emoji: '🇵🇹',
     notes: 'My favorite city so far!',
   };
 
-  const { cityName, emoji, date, notes } = currentCity;
+  const { cityName, date, emoji, notes } = currentCity;
 
   return (
     <div className={styles.city}>
@@ -49,8 +41,8 @@ function City({ cities }) {
         <h6>Learn more</h6>
         <a
           href={`https://en.wikipedia.org/wiki/${cityName}`}
-          target="_blank"
           rel="noreferrer"
+          target="_blank"
         >
           Check out {cityName} on Wikipedia &rarr;
         </a>
@@ -61,6 +53,15 @@ function City({ cities }) {
       </div>
     </div>
   );
+}
+
+function formatDate(date) {
+  return new Intl.DateTimeFormat('en', {
+    day: 'numeric',
+    month: 'long',
+    weekday: 'long',
+    year: 'numeric',
+  }).format(new Date(date));
 }
 
 export default City;
