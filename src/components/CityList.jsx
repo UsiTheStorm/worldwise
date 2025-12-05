@@ -2,9 +2,10 @@ import React from 'react';
 
 // import City from './City';
 import CityItem from './CityItem';
-import styles from './CityList.module.css';
 import Message from './Message';
 import Spinner from './Spinner';
+
+import styles from './CityList.module.css';
 
 function CityList({ cities, isLoading }) {
   if (isLoading)
@@ -16,7 +17,7 @@ function CityList({ cities, isLoading }) {
   return (
     <ul className={styles.cityList}>
       {cities.map(city => (
-        <CityItem key={city.id} city={city} />
+        <CityItem city={city} key={city.id} />
       ))}
     </ul>
   );

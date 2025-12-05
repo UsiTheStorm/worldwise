@@ -3,6 +3,15 @@ import { Link } from 'react-router-dom';
 // import { useCities } from '../contexts/CitiesContext';
 import styles from './CityItem.module.css';
 
+function formatDate(date) {
+  return new Intl.DateTimeFormat('en', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+
+  }).format(new Date(date));
+}
+
 function CityItem({ city }) {
   const { cityName, date, emoji, id, position } = city;
 
@@ -16,14 +25,6 @@ function CityItem({ city }) {
       </Link>
     </li>
   );
-}
-
-function formatDate(date) {
-  return new Intl.DateTimeFormat('en', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-  }).format(new Date(date));
 }
 
 export default CityItem;

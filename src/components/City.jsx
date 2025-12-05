@@ -2,6 +2,15 @@ import { useParams } from 'react-router-dom';
 
 import styles from './City.module.css';
 
+function formatDate(date) {
+  return new Intl.DateTimeFormat('en', {
+    day: 'numeric',
+    month: 'long',
+    weekday: 'long',
+    year: 'numeric',
+  }).format(new Date(date));
+}
+
 function City({ cities }) {
   let id = useParams();
   console.log(id);
@@ -53,15 +62,6 @@ function City({ cities }) {
       </div>
     </div>
   );
-}
-
-function formatDate(date) {
-  return new Intl.DateTimeFormat('en', {
-    day: 'numeric',
-    month: 'long',
-    weekday: 'long',
-    year: 'numeric',
-  }).format(new Date(date));
 }
 
 export default City;
