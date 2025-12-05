@@ -1,7 +1,6 @@
 import antfu from '@antfu/eslint-config';
 import perfectionist from 'eslint-plugin-perfectionist';
 
-// Витягуємо лише правила з конфігурації Perfectionist
 const perfectionistRules = perfectionist.configs['recommended-natural'].rules;
 
 export default antfu(
@@ -20,18 +19,48 @@ export default antfu(
 
   {
     rules: {
-      // 1. Розгортаємо всі правила Perfectionist першими.
-      // Це замінює необхідність підключати об'єкт plugins
       ...perfectionistRules,
 
       'antfu/no-top-level-await': ['off'],
-      // 2. Вимикаємо конфліктуючі правила Antfu
-      'import/order': 'off',
 
-      
+      'import/order': 'off',
       'no-console': ['warn'],
+
       'node/no-process-env': ['error'],
       'node/prefer-global/process': ['off'],
+
+      'perfectionist/sort-imports': [
+        'error',
+        {
+
+          customGroups: {
+            value: {
+              'css-modules': ['\\.(c|s[ac]|le)ss$'],
+            },
+          },
+          groups: [
+            'type',
+            'builtin',
+            'external',
+            'internal',
+            ['parent', 'sibling', 'index'],
+            'css-modules',
+            'unknown',
+          ],
+          order: 'asc',
+          type: 'natural',
+        },
+      ],
+      'perfectionist/sort-modules': 'off', // Вимкнули сортування функцій/компонентів у корені модуля
+
+      // 'perfectionist/sort-variable-declarations': [
+      //   'error',
+      //   {
+      //     order: 'asc',
+      //     partitionByNewLine: false,
+      //     type: 'natural',
+      //   },
+      // ], // Вимкнули сортування оголошень (const/let/var)
       'react/jsx-one-expression-per-line': 'off',
 
       'sort-imports': 'off',
