@@ -51,7 +51,7 @@ function App() {
         <Route element={<Pricing />} path="/pricing" />
         <Route element={<Login />} path="/login" />
         <Route element={<AppLayout />} path="/app">
-          <Route element={<Navigate to="cities" />} index />
+          <Route element={<Navigate replace to="cities" />} index />
 
           <Route element={<CityList cities={cities} isLoading={isLoading} />} path="cities" />
           <Route element={<City />} path="cities/:id" />
