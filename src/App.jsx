@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
 import City from './components/City';
 import CityList from './components/CityList';
@@ -51,7 +51,7 @@ function App() {
         <Route element={<Pricing />} path="/pricing" />
         <Route element={<Login />} path="/login" />
         <Route element={<AppLayout />} path="/app">
-          <Route element={<CityList cities={cities} isLoading={isLoading} />} index />
+          <Route element={<Navigate to="cities" />} index />
 
           <Route element={<CityList cities={cities} isLoading={isLoading} />} path="cities" />
           <Route element={<City />} path="cities/:id" />
