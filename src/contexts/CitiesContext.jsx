@@ -31,7 +31,6 @@ function CitiesProvider({ children }) {
 
     fetchCities();
   }, []);
-  
 
   const getCity = useCallback(async (id) => {
     try {
@@ -51,7 +50,11 @@ function CitiesProvider({ children }) {
     }
   }, []);
 
-  const value = useMemo(() => ({ cities, currentCity, getCity, isLoading }), [cities, isLoading, currentCity, getCity]);
+  const clearCurrentCity = useCallback(() => {
+    setCurrentCity(undefined);
+  }, []);
+
+  const value = useMemo(() => ({ cities, clearCurrentCity, currentCity, getCity, isLoading }), [cities, isLoading, currentCity, getCity, clearCurrentCity]);
 
   return <CitiesContext value={value}>{children}</CitiesContext>;
 }
