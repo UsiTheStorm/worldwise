@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from 'react';
+import { createContext, use, useEffect, useMemo, useState } from 'react';
 
 const CitiesContext = createContext();
 
@@ -30,7 +30,17 @@ function CitiesProvider({ children }) {
 
     fetchCities();
   }, []);
-  return <CitiesContext value={{ cities, isLoading }}>{children}</CitiesContext>;
+
+  const value = useMemo(() => ({ cities, isLoading }), [cities, isLoading]);
+
+  return <CitiesContext value={value}>{children}</CitiesContext>;
+}
+
+function useCities() {
+  const context = use(CitiesContext);
+  if (context === undefined)
+    throw new Error('CitiesContext was used outside the CitiesProvider');
+  return context;
 }
 
 export { CitiesProvider };
