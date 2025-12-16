@@ -1,4 +1,3 @@
-// import { useEffect, useState } from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
 import City from './components/City';
@@ -15,35 +14,7 @@ import Pricing from './pages/Pricing';
 import './App.css';
 import Product from './pages/Product';
 
-// const BASE_URL = 'http://localhost:3000';
-
 function App() {
-  // const [cities, setCities] = useState([]);
-  // const [isLoading, setIsLoading] = useState(false);
-
-  // useEffect(() => {
-  //   async function fetchCities() {
-  //     try {
-  //       setIsLoading(true);
-  //       const res = await fetch(`${BASE_URL}/cities`);
-  //       if (!res.ok) {
-  //         throw new Error('Network response was not ok');
-  //       }
-
-  //       const data = await res.json();
-  //       setCities(data);
-  //     }
-  //     catch (error) {
-  //       console.error(error);
-  //     }
-  //     finally {
-  //       setIsLoading(false);
-  //     }
-  //   }
-
-  //   fetchCities();
-  // }, []);
-
   return (
     <CitiesProvider>
       <BrowserRouter>
@@ -54,10 +25,8 @@ function App() {
           <Route element={<Login />} path="/login" />
           <Route element={<AppLayout />} path="/app">
             <Route element={<Navigate replace to="cities" />} index />
-            {/* cities={cities} isLoading={isLoading} вниз */}
             <Route element={<CityList />} path="cities" />
             <Route element={<City />} path="cities/:id" />
-            {/* cities={cities} isLoading={isLoading}   внмз */}
             <Route element={<CountryList />} path="countries" />
             <Route element={<Form />} path="form" />
           </Route>

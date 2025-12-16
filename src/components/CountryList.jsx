@@ -1,5 +1,3 @@
-import React, { use } from 'react';
-
 import { useCities } from '../contexts/CitiesContext';
 import CountryItem from './CountryItem';
 import Message from './Message';
@@ -29,8 +27,6 @@ function CountryList() {
   });
 
   const countries = Array.from(countriesMap.values());
-
-  // console.log(countries);
 
   return (
     <ul className={styles.countryList}>
