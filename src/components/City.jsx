@@ -1,4 +1,8 @@
+import { use, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+
+import { useCities } from '../contexts/CitiesContext';
+import Spinner from './Spinner';
 
 import styles from './City.module.css';
 
@@ -11,17 +15,16 @@ function formatDate(date) {
   }).format(new Date(date));
 }
 
-function City({ cities }) {
-  let id = useParams();
-  console.log(id);
+function City() {
+  const { id } = useParams();
+  const { currentCity, getCity } = useCities();
 
-  // TEMP DATA
-  const currentCity = {
-    cityName: 'Lisbon',
-    date: '2027-10-31T15:59:59.138Z',
-    emoji: '🇵🇹',
-    notes: 'My favorite city so far!',
-  };
+  useEffect(() => {
+    getCity(id);
+  }, [id]);
+
+  if (!currentCity)
+    return Spinner();
 
   const { cityName, date, emoji, notes } = currentCity;
 
