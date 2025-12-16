@@ -43,4 +43,5 @@ function useCities() {
   return context;
 }
 
+/* eslint-disable react-refresh/only-export-components */
 export { CitiesProvider, useCities };
