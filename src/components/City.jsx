@@ -1,4 +1,4 @@
-import { use, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { useCities } from '../contexts/CitiesContext';
@@ -17,14 +17,15 @@ function formatDate(date) {
 
 function City() {
   const { id } = useParams();
-  const { currentCity, getCity } = useCities();
+  const { clearCurrentCity, currentCity, getCity } = useCities();
 
   useEffect(() => {
     getCity(id);
-  }, [id]);
+    return () => clearCurrentCity();
+  }, [id, getCity, clearCurrentCity]);
 
   if (!currentCity)
-    return Spinner();
+    return <Spinner />;
 
   const { cityName, date, emoji, notes } = currentCity;
 
