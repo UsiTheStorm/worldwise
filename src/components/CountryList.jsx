@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { use } from 'react';
 
+import { useCities } from '../contexts/CitiesContext';
 import CountryItem from './CountryItem';
 import Message from './Message';
 import Spinner from './Spinner';
 
 import styles from './CountryList.module.css';
 
-function CountryList({ cities, isLoading }) {
+function CountryList() {
+  const { cities, isLoading } = useCities();
+
   if (isLoading)
     return <Spinner />;
 

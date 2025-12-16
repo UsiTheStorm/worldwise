@@ -5,7 +5,7 @@ import City from './components/City';
 import CityList from './components/CityList';
 import CountryList from './components/CountryList';
 import Form from './components/Form';
-import { CitiesProvider } from './contexts/CitiesContext';
+import { CitiesProvider, useCities } from './contexts/CitiesContext';
 import AppLayout from './pages/AppLayout';
 import Homepage from './pages/Homepage';
 import Login from './pages/Login';
