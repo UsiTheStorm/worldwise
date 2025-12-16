@@ -1,4 +1,4 @@
-import { createContext, use, useEffect, useMemo, useState } from 'react';
+import { createContext, use, useCallback, useEffect, useMemo, useState } from 'react';
 
 const CitiesContext = createContext();
 
@@ -7,6 +7,7 @@ const BASE_URL = 'http://localhost:3000';
 function CitiesProvider({ children }) {
   const [cities, setCities] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [currentCity, setCurrentCity] = useState();
 
   useEffect(() => {
     async function fetchCities() {
@@ -30,8 +31,27 @@ function CitiesProvider({ children }) {
 
     fetchCities();
   }, []);
+  
 
-  const value = useMemo(() => ({ cities, isLoading }), [cities, isLoading]);
+  const getCity = useCallback(async (id) => {
+    try {
+      setIsLoading(true);
+      const res = await fetch(`${BASE_URL}/cities/${id}`);
+      if (!res.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const data = await res.json();
+      setCurrentCity(data);
+    }
+    catch (error) {
+      console.error(error);
+    }
+    finally {
+      setIsLoading(false);
+    }
+  }, []);
+
+  const value = useMemo(() => ({ cities, currentCity, getCity, isLoading }), [cities, isLoading, currentCity, getCity]);
 
   return <CitiesContext value={value}>{children}</CitiesContext>;
 }
