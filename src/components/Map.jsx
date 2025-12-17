@@ -17,7 +17,7 @@ function Map() {
 
   return (
     <div className={styles.mapContainer} onClick={() => navigate('form')}>
-      <MapContainer center={mapPosition} className={styles.map} scrollWheelZoom={false} zoom={13}>
+      <MapContainer center={mapPosition} className={styles.map} scrollWheelZoom={true} zoom={13}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
