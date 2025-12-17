@@ -27,10 +27,17 @@ html {
 }
 
 body {
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Twemoji Country Flags', 'Manrope', sans-serif;
   color: var(--color-light--2);
   font-weight: 400;
   line-height: 1.6;
+}
+
+/* Fonts  for leaflet */
+.leaflet-popup-content-wrapper,
+.leaflet-popup-content,
+.leaflet-tooltip {
+  font-family: 'Twemoji Country Flags', 'Manrope', sans-serif !important;
 }
 
 label {

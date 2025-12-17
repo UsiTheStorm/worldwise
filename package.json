@@ -12,6 +12,7 @@
     "server": "json-server --watch data/cities.json --port 3000 --delay 500"
   },
   "dependencies": {
+    "country-flag-emoji-polyfill": "^0.1.8",
     "leaflet": "^1.9.4",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
