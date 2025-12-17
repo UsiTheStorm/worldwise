@@ -9,9 +9,9 @@ import { useState } from 'react';
  * - `isLoading`: a boolean indicating whether the hook is currently loading the user's geolocation.
  * - `position`: an object with two properties: `lat` and `lng`, representing the user's geolocation coordinates.
  */
-function useGeolocation() {
+function useGeolocation(defaultPosition = null) {
   const [isLoading, setIsLoading] = useState(false);
-  const [position, setPosition] = useState({ lat: null, lng: null });
+  const [position, setPosition] = useState(defaultPosition);
   const [error, setError] = useState(null);
 
   function getPosition() {
@@ -38,4 +38,4 @@ function useGeolocation() {
 
   return { error, getPosition, isLoading, position };
 }
-export default useGeolocation;
+export { useGeolocation };
