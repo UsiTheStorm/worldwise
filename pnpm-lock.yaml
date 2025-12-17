@@ -8,12 +8,18 @@ importers:
 
   .:
     dependencies:
+      leaflet:
+        specifier: ^1.9.4
+        version: 1.9.4
       react:
         specifier: ^19.1.1
         version: 19.1.1
       react-dom:
         specifier: ^19.1.1
         version: 19.1.1(react@19.1.1)
+      react-leaflet:
+        specifier: ^5.0.0
+        version: 5.0.0(leaflet@1.9.4)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       react-router-dom:
         specifier: ^7.8.2
         version: 7.8.2(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
@@ -48,9 +54,6 @@ importers:
       eslint-plugin-node:
         specifier: ^11.1.0
         version: 11.1.0(eslint@9.34.0)
-      eslint-plugin-perfectionist:
-        specifier: ^4.15.0
-        version: 4.15.0(eslint@9.34.0)(typescript@5.9.2)
       eslint-plugin-react-hooks:
         specifier: ^5.2.0
         version: 5.2.0(eslint@9.34.0)
@@ -479,6 +482,13 @@ packages:
   '@pkgr/core@0.2.9':
     resolution: {integrity: sha512-QNqXyfVS2wm9hweSYD2O7F0G06uurj9kZ96TRQE5Y9hU7+tgdZwIkbAKc5Ocy1HxEY2kuDQa6cQ1WRs/O5LFKA==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
+
+  '@react-leaflet/core@3.0.0':
+    resolution: {integrity: sha512-3EWmekh4Nz+pGcr+xjf0KNyYfC3U2JjnkWsh0zcqaexYqmmB5ZhH37kz41JXGmKzpaMZCnPofBBm64i+YrEvGQ==}
+    peerDependencies:
+      leaflet: ^1.9.0
+      react: ^19.0.0
+      react-dom: ^19.0.0
 
   '@rolldown/pluginutils@1.0.0-beta.32':
     resolution: {integrity: sha512-QReCdvxiUZAPkvp1xpAg62IeNzykOFA6syH2CnClif4YmALN1XKpB39XneL80008UbtMShthSVDKmrx05N1q/g==}
@@ -2074,6 +2084,9 @@ packages:
   keyv@4.5.4:
     resolution: {integrity: sha512-oxVHkHR/EJf2CNXnWxRLW6mg7JyCCUcG0DtEGmL2ctUo1PNTin1PUil+r/+4r5MpVgC/fn1kjsx7mjSujKqIpw==}
 
+  leaflet@1.9.4:
+    resolution: {integrity: sha512-nxS1ynzJOmOlHp+iL3FyWqK89GtNL8U8rvlMOsQdTTssxZwCXh8N2NB3GDQOL+YR3XnWyZAxwQixURb+FA74PA==}
+
   levn@0.4.1:
     resolution: {integrity: sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ==}
     engines: {node: '>= 0.8.0'}
@@ -2569,6 +2582,13 @@ packages:
 
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
+
+  react-leaflet@5.0.0:
+    resolution: {integrity: sha512-CWbTpr5vcHw5bt9i4zSlPEVQdTVcML390TjeDG0cK59z1ylexpqC6M1PJFjV8jD7CF+ACBFsLIDs6DRMoLEofw==}
+    peerDependencies:
+      leaflet: ^1.9.0
+      react: ^19.0.0
+      react-dom: ^19.0.0
 
   react-router-dom@7.8.2:
     resolution: {integrity: sha512-Z4VM5mKDipal2jQ385H6UBhiiEDlnJPx6jyWsTYoZQdl5TrjxEV2a9yl3Fi60NBJxYzOTGTTHXPi0pdizvTwow==}
@@ -3495,6 +3515,12 @@ snapshots:
   '@pkgr/core@0.1.2': {}
 
   '@pkgr/core@0.2.9': {}
+
+  '@react-leaflet/core@3.0.0(leaflet@1.9.4)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)':
+    dependencies:
+      leaflet: 1.9.4
+      react: 19.1.1
+      react-dom: 19.1.1(react@19.1.1)
 
   '@rolldown/pluginutils@1.0.0-beta.32': {}
 
@@ -5426,6 +5452,8 @@ snapshots:
     dependencies:
       json-buffer: 3.0.1
 
+  leaflet@1.9.4: {}
+
   levn@0.4.1:
     dependencies:
       prelude-ls: 1.2.1
@@ -6096,6 +6124,13 @@ snapshots:
       scheduler: 0.26.0
 
   react-is@16.13.1: {}
+
+  react-leaflet@5.0.0(leaflet@1.9.4)(react-dom@19.1.1(react@19.1.1))(react@19.1.1):
+    dependencies:
+      '@react-leaflet/core': 3.0.0(leaflet@1.9.4)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
+      leaflet: 1.9.4
+      react: 19.1.1
+      react-dom: 19.1.1(react@19.1.1)
 
   react-router-dom@7.8.2(react-dom@19.1.1(react@19.1.1))(react@19.1.1):
     dependencies:
