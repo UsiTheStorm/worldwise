@@ -44,7 +44,34 @@
   color: var(--color-dark--0);
 }
 
+/* Calendar */
+.row :global(.react-datepicker__tab-loop) {
+  position: absolute !important;
+}
+
+:global(.react-datepicker__triangle) {
+  left: 2rem !important;
+}
+
 :global(.react-datepicker) {
-  font-family: inherit;
-  font-size: 1.2rem;
+  font-family: inherit !important;
+  font-size: 1rem !important;
+}
+
+:global(.react-datepicker__day),
+:global(.react-datepicker__day-name) {
+  width: 3rem !important;
+  line-height: 3rem !important;
+  margin: 0.3rem !important;
+}
+
+:global(.react-datepicker__day--selected),
+:global(.react-datepicker__day--keyboard-selected) {
+  background-color: var(--color-brand--2) !important;
+  color: var(--color-dark--1) !important;
+  border-radius: 50% !important;
+}
+
+:global(.react-datepicker__day:hover) {
+  border-radius: 50% !important;
 }
