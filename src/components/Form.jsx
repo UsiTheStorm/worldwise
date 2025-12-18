@@ -23,6 +23,33 @@ function Form() {
   const [notes, setNotes] = useState('');
   const [lat, lng] = useUrlPosition();
 
+  const [isLoadingGeocoding, setIsLoadingGeocoding] = useState(false);
+
+  const BASIC_URL = 'https://api.bigdatacloud.net/data/reverse-geocode-client';
+
+  useEffect(() => {
+    async function fetchCityData() {
+      try {
+        setIsLoadingGeocoding(true);
+        const res = await fetch(`${BASIC_URL}?latitude=${lat}&longitude=${lng}`);
+        if (!res.ok)
+          throw new Error('Failed to fetch city data');
+
+        const data = await res.json();
+        console.log(res);
+        console.log(data);
+      }
+      catch (err) {
+        console.error(err);
+      }
+      finally {
+        setIsLoadingGeocoding(false);
+      }
+    }
+    if (lat && lng)
+      fetchCityData();
+  }, [lat, lng]);
+
   return (
     <form className={styles.form}>
       <div className={styles.row}>
