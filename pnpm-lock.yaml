@@ -57,6 +57,9 @@ importers:
       eslint-plugin-node:
         specifier: ^11.1.0
         version: 11.1.0(eslint@9.34.0)
+      eslint-plugin-perfectionist:
+        specifier: 4.15.0
+        version: 4.15.0(eslint@9.34.0)(typescript@5.9.2)
       eslint-plugin-react-hooks:
         specifier: ^5.2.0
         version: 5.2.0(eslint@9.34.0)
