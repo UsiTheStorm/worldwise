@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
+import useDelayedLoading from '../hooks/useDelayedLoading';
 import useUrlPosition from '../hooks/useUrlPosition';
 import BackButton from './BackButton';
 import Button from './Button';
@@ -28,6 +29,8 @@ function Form() {
 
   const [geocodingError, setGeocodingError] = useState('');
   const [isLoadingGeocoding, setIsLoadingGeocoding] = useState(false);
+
+  const shouldShowSpinner = useDelayedLoading(isLoadingGeocoding, 700);
 
   const BASIC_URL = 'https://api.bigdatacloud.net/data/reverse-geocode-client';
 
@@ -62,7 +65,7 @@ function Form() {
       fetchCityData();
   }, [lat, lng]);
 
-  if (isLoadingGeocoding)
+  if (shouldShowSpinner)
     return <Spinner />;
 
   if (geocodingError)
