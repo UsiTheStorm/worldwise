@@ -1,6 +1,7 @@
 // "https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=0&longitude=0"
 
 import { useEffect, useState } from 'react';
+import DatePicker from 'react-datepicker';
 
 import useDelayedLoading from '../hooks/useDelayedLoading';
 import useUrlPosition from '../hooks/useUrlPosition';
@@ -10,6 +11,7 @@ import Message from './Message';
 import Spinner from './Spinner';
 
 import styles from './Form.module.css';
+import 'react-datepicker/dist/react-datepicker.css';
 
 export function convertToEmoji(countryCode) {
   const codePoints = countryCode
@@ -68,6 +70,11 @@ function Form() {
       fetchCityData();
   }, [lat, lng]);
 
+  function handleSubmit(e) {
+    // e.preventDefault();
+    console.log(e);
+  }
+
   if (shouldShowSpinner)
     return <Spinner />;
 
@@ -78,7 +85,7 @@ function Form() {
     return <Message message={geocodingError} />;
 
   return (
-    <form className={styles.form}>
+    <form className={styles.form} onSubmit={handleSubmit}>
       <div className={styles.row}>
         <label htmlFor="cityName">City name</label>
         <input
@@ -91,10 +98,19 @@ function Form() {
 
       <div className={styles.row}>
         <label htmlFor="date">When did you go to {cityName}?</label>
-        <input
+        {/* <input
           id="date"
           onChange={e => setDate(e.target.value)}
           value={date}
+        /> */}
+        <DatePicker
+          className={styles.dateInput}
+          dateFormat="dd.MM.yyyy"
+          id="date"
+          onChange={date => setDate(date)}
+          popperClassName="datepicker-popper"
+          popperPlacement="bottom-start"
+          selected={date}
         />
       </div>
 
