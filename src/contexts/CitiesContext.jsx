@@ -77,11 +77,29 @@ function CitiesProvider({ children }) {
     }
   }, []);
 
+  const deleteCity = useCallback(async (id) => {
+    try {
+      setIsLoading(true);
+      await fetch(`${BASE_URL}/cities/${id}`, {
+        method: 'DELETE',
+      });
+
+      setCities(cities => cities.filter(city => city.id !== id));
+      setCurrentCity(undefined);
+    }
+    catch (error) {
+      console.error('Error deleting city:', error);
+    }
+    finally {
+      setIsLoading(false);
+    }
+  }, []);
+
   // const clearCurrentCity = useCallback(() => {
   //   setCurrentCity(undefined);
   // }, []);
 
-  const value = useMemo(() => ({ cities, createCity, currentCity, getCity, isLoading }), [cities, isLoading, currentCity, getCity, createCity]);
+  const value = useMemo(() => ({ cities, createCity, currentCity, deleteCity, getCity, isLoading }), [cities, isLoading, currentCity, getCity, createCity, deleteCity]);
 
   return <CitiesContext value={value}>{children}</CitiesContext>;
 }
