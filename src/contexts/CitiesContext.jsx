@@ -50,11 +50,38 @@ function CitiesProvider({ children }) {
     }
   }, []);
 
+  const createCity = useCallback(async (newCity) => {
+    try {
+      setIsLoading(true);
+      const res = await fetch(`${BASE_URL}/cities`, {
+        body: JSON.stringify(newCity),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        method: 'POST',
+      });
+      if (!res.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const data = await res.json();
+      setCurrentCity(data);
+
+      setCities(cities => ([...cities, data]));
+      // console.log('DATA:', data);
+    }
+    catch (error) {
+      console.error(error);
+    }
+    finally {
+      setIsLoading(false);
+    }
+  }, []);
+
   // const clearCurrentCity = useCallback(() => {
   //   setCurrentCity(undefined);
   // }, []);
 
-  const value = useMemo(() => ({ cities, currentCity, getCity, isLoading }), [cities, isLoading, currentCity, getCity]);
+  const value = useMemo(() => ({ cities, createCity, currentCity, getCity, isLoading }), [cities, isLoading, currentCity, getCity, createCity]);
 
   return <CitiesContext value={value}>{children}</CitiesContext>;
 }
