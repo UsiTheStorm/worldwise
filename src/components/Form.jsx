@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import DatePicker from 'react-datepicker';
 
+import { useCities } from '../contexts/CitiesContext';
 import useDelayedLoading from '../hooks/useDelayedLoading';
 import useUrlPosition from '../hooks/useUrlPosition';
 import BackButton from './BackButton';
@@ -10,8 +11,8 @@ import Button from './Button';
 import Message from './Message';
 import Spinner from './Spinner';
 
-import styles from './Form.module.css';
 import 'react-datepicker/dist/react-datepicker.css';
+import styles from './Form.module.css';
 
 export function convertToEmoji(countryCode) {
   const codePoints = countryCode
@@ -28,6 +29,7 @@ function Form() {
   const [date, setDate] = useState(() => new Date());
   const [notes, setNotes] = useState('');
   const [lat, lng] = useUrlPosition();
+  const { createCity } = useCities();
 
   const [geocodingError, setGeocodingError] = useState('');
   const [isLoadingGeocoding, setIsLoadingGeocoding] = useState(false);
@@ -70,9 +72,9 @@ function Form() {
       fetchCityData();
   }, [lat, lng]);
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    console.log(e);
+    // console.log(e);
     if (!cityName || !date)
       return;
 
@@ -87,7 +89,9 @@ function Form() {
         lng,
       },
     };
-    console.log(newCity);
+    // console.log(newCity);
+
+    await createCity(newCity);
   }
 
   if (shouldShowSpinner)
