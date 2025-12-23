@@ -71,8 +71,23 @@ function Form() {
   }, [lat, lng]);
 
   function handleSubmit(e) {
-    // e.preventDefault();
+    e.preventDefault();
     console.log(e);
+    if (!cityName || !date)
+      return;
+
+    const newCity = {
+      cityName,
+      country,
+      date,
+      emoji,
+      notes,
+      position: {
+        lat,
+        lng,
+      },
+    };
+    console.log(newCity);
   }
 
   if (shouldShowSpinner)
