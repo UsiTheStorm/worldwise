@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import DatePicker from 'react-datepicker';
+import { useNavigate } from 'react-router-dom';
 
 import { useCities } from '../contexts/CitiesContext';
 import useDelayedLoading from '../hooks/useDelayedLoading';
@@ -9,9 +10,10 @@ import useUrlPosition from '../hooks/useUrlPosition';
 import BackButton from './BackButton';
 import Button from './Button';
 import Message from './Message';
-import Spinner from './Spinner';
 
 import 'react-datepicker/dist/react-datepicker.css';
+import Spinner from './Spinner';
+
 import styles from './Form.module.css';
 
 export function convertToEmoji(countryCode) {
@@ -29,7 +31,9 @@ function Form() {
   const [date, setDate] = useState(() => new Date());
   const [notes, setNotes] = useState('');
   const [lat, lng] = useUrlPosition();
-  const { createCity } = useCities();
+
+  const { createCity, isLoading } = useCities();
+  const navigate = useNavigate();
 
   const [geocodingError, setGeocodingError] = useState('');
   const [isLoadingGeocoding, setIsLoadingGeocoding] = useState(false);
@@ -92,6 +96,7 @@ function Form() {
     // console.log(newCity);
 
     await createCity(newCity);
+    navigate('/app');
   }
 
   if (shouldShowSpinner)
@@ -104,7 +109,7 @@ function Form() {
     return <Message message={geocodingError} />;
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit}>
+    <form className={`${styles.form} ${isLoading ? styles.loading : ''}`} onSubmit={handleSubmit}>
       <div className={styles.row}>
         <label htmlFor="cityName">City name</label>
         <input
