@@ -11,9 +11,22 @@
   border-radius: 7px;
   padding: 1rem 2rem;
   border-left: 5px solid var(--color-brand--1);
+  max-width: 19rem;
 }
 
 .countryItem span:first-child {
   font-size: 3rem;
   line-height: 1;
+}
+
+.countryName {
+  align-self: stretch;
+  text-align: center;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  display: block;
+  width: 100%;
 }
