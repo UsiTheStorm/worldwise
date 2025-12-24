@@ -24,6 +24,7 @@ function reducer(state, action) {
         cities: [...state.cities, action.payload],
         currentCity: action.payload,
         isLoading: false,
+
       };
     case 'city/deleted':
       return {
@@ -79,6 +80,9 @@ function CitiesProvider({ children }) {
   }, []);
 
   const getCity = useCallback(async (id) => {
+    if (currentCity.id === Number(id))
+      return;
+
     dispatch({ type: 'loading' });
     try {
       const res = await fetch(`${BASE_URL}/cities/${id}`);
