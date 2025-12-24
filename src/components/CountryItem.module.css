@@ -11,7 +11,7 @@
   border-radius: 7px;
   padding: 1rem 2rem;
   border-left: 5px solid var(--color-brand--1);
-  max-width: 19rem;
+  max-width: 22rem;
 }
 
 .countryItem span:first-child {
