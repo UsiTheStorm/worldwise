@@ -12,17 +12,17 @@ const initialState = {
 
 function reducer(state, action) {
   switch (action.type) {
-    case 'cities/created':
-      return {
-        ...state,
-        cities: [...state.cities, action.payload],
-        currentCity: action.payload,
-      };
     case 'cities/loaded':
       return {
         ...state,
         cities: action.payload,
         isLoading: false,
+      };
+    case 'city/created':
+      return {
+        ...state,
+        cities: [...state.cities, action.payload],
+        currentCity: action.payload,
       };
     case 'city/deleted':
       return {
@@ -108,7 +108,7 @@ function CitiesProvider({ children }) {
       }
       const data = await res.json();
 
-      dispatch({ payload: data, type: 'cities/created' });
+      dispatch({ payload: data, type: 'city/created' });
     }
     catch (error) {
       console.error(error);
