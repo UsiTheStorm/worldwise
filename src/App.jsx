@@ -10,10 +10,11 @@ import AppLayout from './pages/AppLayout';
 import Homepage from './pages/Homepage';
 import Login from './pages/Login';
 import PageNotFound from './pages/PageNotFound';
-
-import './App.css';
 import Pricing from './pages/Pricing';
 import Product from './pages/Product';
+import ProtectedRout from './pages/ProtectedRout';
+
+import './App.css';
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function App() {
             <Route element={<Product />} path="/product" />
             <Route element={<Pricing />} path="/pricing" />
             <Route element={<Login />} path="/login" />
-            <Route element={<AppLayout />} path="/app">
+            <Route element={<ProtectedRout><AppLayout /></ProtectedRout>} path="/app">
               <Route element={<Navigate replace to="cities" />} index />
               <Route element={<CityList />} path="cities" />
               <Route element={<City />} path="cities/:id" />
