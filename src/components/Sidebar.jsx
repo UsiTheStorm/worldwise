@@ -1,13 +1,10 @@
-import React from 'react';
-
 import { Outlet } from 'react-router-dom';
 
 import AppNav from './AppNav';
 import Logo from './Logo';
+import SidebarFooter from './SidebarFooter';
 
 import styles from './Sidebar.module.css';
-
-import SidebarFooter from './SidebarFooter';
 
 function Sidebar() {
   return (
