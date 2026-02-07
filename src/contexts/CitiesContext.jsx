@@ -96,7 +96,7 @@ function CitiesProvider({ children }) {
       console.error(error);
       dispatch({ payload: 'Error loading city', type: 'rejected' });
     }
-  }, []);
+  }, [currentCity.id]);
 
   const createCity = useCallback(async (newCity) => {
     dispatch({ type: 'loading' });
