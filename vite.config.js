@@ -8,11 +8,11 @@ export default defineConfig(({ mode }) => {
   const isGitHub = deployTarget === 'GH';
 
   return {
-    plugins: [react()],
     base: isGitHub ? '/worldwise/' : '/',
     build: {
-      sourcemap: true,
       emptyOutDir: true,
+      sourcemap: true,
     },
+    plugins: [react()],
   };
 });
