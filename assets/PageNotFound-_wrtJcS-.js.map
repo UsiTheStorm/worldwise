@@ -1,0 +1,1 @@
+{"version":3,"file":"PageNotFound-_wrtJcS-.js","sources":["../../src/pages/PageNotFound.jsx"],"sourcesContent":["export default function PageNotFound() {\n  return (\n    <div>\n      <h1>Page not found 😢</h1>\n    </div>\n  );\n}\n"],"names":["PageNotFound","jsx"],"mappings":"wCAAA,SAAwBA,GAAe,CACrC,OACEC,EAAAA,IAAC,MAAA,CACC,SAAAA,EAAAA,IAAC,KAAA,CAAG,6BAAiB,EACvB,CAEJ"}
