@@ -25,8 +25,8 @@ function App() {
     <AuthProvider>
       <CitiesProvider>
         <BrowserRouter>
-          <Routes>
-            <Suspense fallback={<SpinnerFullPage />}>
+          <Suspense fallback={<SpinnerFullPage />}>
+            <Routes>
               <Route element={<Homepage />} index />
               <Route element={<Product />} path="/product" />
               <Route element={<Pricing />} path="/pricing" />
@@ -38,11 +38,11 @@ function App() {
                 <Route element={<CountryList />} path="countries" />
                 <Route element={<Form />} path="form" />
               </Route>
-            </Suspense>
 
-            <Route element={<PageNotFound />} path="*" />
+              <Route element={<PageNotFound />} path="*" />
 
-          </Routes>
+            </Routes>
+          </Suspense>
         </BrowserRouter>
       </CitiesProvider>
     </AuthProvider>
