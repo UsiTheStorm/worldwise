@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "build:gh": "cross-env DEPLOY_TARGET=GH vite build",
+    "build:gh": "cross-env VITE_DEPLOY_TARGET=GH vite build",
+
     "lint": "eslint .",
     "lint:fix": "eslint --fix",
     "preview": "vite preview",
