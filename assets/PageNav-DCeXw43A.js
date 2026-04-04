@@ -1,0 +1,2 @@
+import{j as s,N as n}from"./index-CS2ot7pB.js";import{L as c}from"./Logo-CyE479vC.js";const r="_nav_sdsrg_1",a="_ctaLink_sdsrg_28",i={nav:r,ctaLink:a};function l(){return s.jsxs("nav",{className:i.nav,children:[s.jsx(c,{}),s.jsxs("ul",{children:[s.jsx("li",{children:s.jsx(n,{to:"/product",children:"Product"})}),s.jsx("li",{children:s.jsx(n,{to:"/pricing",children:"Pricing"})}),s.jsx("li",{children:s.jsx(n,{to:"/login",className:i.ctaLink,children:"Login"})})]})]})}export{l as P};
+//# sourceMappingURL=PageNav-DCeXw43A.js.map
